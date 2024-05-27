@@ -21,6 +21,10 @@ GameData="*res://scripts/GameData.gd"
 SceneChangeController="*res://scripts/scene_change_controller.gd"
 GlobalPlayerController="*res://scripts/global_player_controller.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg")
+
 [input]
 
 move_left={

@@ -24,7 +24,7 @@ extends Resource
 		emit_changed()
 
 ## If true, will format on save.
-@export var format_on_save := false:
+@export var format_on_save := true:
 	set(v):
 		format_on_save = v
 		emit_changed()

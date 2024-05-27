@@ -8,15 +8,16 @@ var currentScene = null
 func _ready():
 	currentScene = currentLevelNode.get_child(0)
 	
-func changeScene(scenePath,sceneName):
-	call_deferred("_defered_switch_scene", scenePath,sceneName)
+func changeScene(scenePath):
+	call_deferred("_defered_switch_scene", scenePath)
 	
 	
-func _defered_switch_scene(scenePath,sceneName):
-	currentScene.free()
+func _defered_switch_scene(scenePath):
+	
+	currentScene.queue_free()
 	var loadNewScene = load(scenePath)
 	var newScene= loadNewScene.instantiate()
 	currentScene = newScene
-	currentScene.name = sceneName
 	currentLevelNode.add_child(currentScene,true)
-	#get_tree().current_scene = current_scene	
+
+	#get_tree().current_scene = currentScene	

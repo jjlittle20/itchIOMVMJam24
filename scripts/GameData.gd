@@ -18,8 +18,8 @@ var main ={
 	},
 	persistentData={
 		"currentArea":"forest",
-		"currentLevel":"level1",
-		"currentSpawnPoint":"a"
+		"currentLevel":"forest_level_1",
+		"currentSpawnPoint":""
 	}
 	
 }
@@ -36,20 +36,37 @@ var items={
 var levels={
 	"area":{
 		"forest":{
-			"level1":{
-				"name":"level1",
-				"scenePath":"res://scenes/level_1.tscn",
+			"forest_level_1":{
+				"name":"forest_level_1",
+				"scenePath":"res://scenes/forest_level_1.tscn",
 				"connections":{
 					#key is the connection point entered. then area+level+connection is the point exited
-					"a": {"area":"forest","level":"level2","connection":"b"}
+					"b": {"area":"forest","level":"forest_level_2","connection":"a"}
 				}
 			
 			},
-			"level2":{
-				"name":"level2",
-				"scenePath":"res://scenes/level_2.tscn",
+			"forest_level_2":{
+				"name":"forest_level_2",
+				"scenePath":"res://scenes/forest_level_2.tscn",
 				"connections":{
-					"a": {"area":"forest","level":"level1","connection":"a"}
+					"a": {"area":"forest","level":"forest_level_1","connection":"b"},
+					"b": {"area":"forest","level":"forest_level_3","connection":"a"}
+				}
+			},
+			"forest_level_3":{
+				"name":"forest_level_3",
+				"scenePath":"res://scenes/forest_level_3.tscn",
+				"connections":{
+					"a": {"area":"forest","level":"forest_level_2","connection":"b"},
+					"b": {"area":"forest","level":"forest_level_4","connection":"a"}
+				}
+			},
+			"forest_level_4":{
+				"name":"forest_level_4",
+				"scenePath":"res://scenes/forest_level_4.tscn",
+				"connections":{
+					"a": {"area":"forest","level":"forest_level_3","connection":"b"},
+					#"b": {"area":"forest","level":"forest_level_4","connection":"a"}
 				}
 			}
 		}

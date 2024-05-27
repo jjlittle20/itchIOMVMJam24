@@ -5,3 +5,4 @@ extends Node
 func setPlayerPosition(newPlayerPosX,newPlayerPosY):
 	player.setPosition(newPlayerPosX,newPlayerPosY)
 	
+

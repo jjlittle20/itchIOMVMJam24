@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cepq2kk036o8l"]
+[gd_scene load_steps=4 format=3 uid="uid://cepq2kk036o8l"]
 
-[ext_resource type="PackedScene" uid="uid://bxmadhbr66ar3" path="res://scenes/level_1.tscn" id="2_1k5cg"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="1_bmpbg"]
+[ext_resource type="PackedScene" uid="uid://bluyio8cq4mll" path="res://scenes/forest_level_1.tscn" id="1_iqaau"]
 [ext_resource type="PackedScene" uid="uid://fgmqyywk5evi" path="res://scenes/player.tscn" id="2_a83lv"]
 
 [node name="Game" type="Node2D"]
@@ -9,11 +10,20 @@
 
 [node name="CurrentLevel" type="Node" parent="."]
 
-[node name="level1" parent="CurrentLevel" instance=ExtResource("2_1k5cg")]
+[node name="forest_level_1" parent="CurrentLevel" instance=ExtResource("1_iqaau")]
 
 [node name="player" parent="." instance=ExtResource("2_a83lv")]
 unique_name_in_owner = true
-position = Vector2(-3, -17)
+position = Vector2(-799, 34)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(5, 15)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="debug" type="Label" parent="player"]
+offset_left = -23.0
+offset_top = -38.0
+offset_right = 26.0
+offset_bottom = -14.0
+script = ExtResource("1_bmpbg")
