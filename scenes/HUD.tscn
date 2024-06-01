@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbmyshti7gx5d"]
+
+[ext_resource type="Script" path="res://scripts/hud_life.gd" id="1_f6i4p"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="life" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+text = "life: "
+script = ExtResource("1_f6i4p")

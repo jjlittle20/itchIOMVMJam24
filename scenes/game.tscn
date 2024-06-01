@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cepq2kk036o8l"]
+[gd_scene load_steps=5 format=3 uid="uid://cepq2kk036o8l"]
 
 [ext_resource type="Script" path="res://scripts/debug.gd" id="1_bmpbg"]
-[ext_resource type="PackedScene" uid="uid://bluyio8cq4mll" path="res://scenes/forest_level_1.tscn" id="1_iqaau"]
+[ext_resource type="PackedScene" uid="uid://bluyio8cq4mll" path="res://scenes/village_level_A.tscn" id="1_iqaau"]
 [ext_resource type="PackedScene" uid="uid://fgmqyywk5evi" path="res://scenes/player.tscn" id="2_a83lv"]
+[ext_resource type="FontFile" uid="uid://c6h2hilok3slq" path="res://assets/fonts/PixelOperator8.ttf" id="4_p82ns"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,20 +11,17 @@
 
 [node name="CurrentLevel" type="Node" parent="."]
 
-[node name="forest_level_1" parent="CurrentLevel" instance=ExtResource("1_iqaau")]
+[node name="villageLevelA" parent="CurrentLevel" instance=ExtResource("1_iqaau")]
 
 [node name="player" parent="." instance=ExtResource("2_a83lv")]
 unique_name_in_owner = true
-position = Vector2(-799, 34)
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(5, 15)
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
+position = Vector2(-802, 65)
 
 [node name="debug" type="Label" parent="player"]
 offset_left = -23.0
 offset_top = -38.0
 offset_right = 26.0
 offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("4_p82ns")
+theme_override_font_sizes/font_size = 10
 script = ExtResource("1_bmpbg")

@@ -1,0 +1,7 @@
+add
+walk-up-stairs 8 frames
+walk-up-stairs 4 frames
+
+reorganized spritesheet with all
+added aseprite file with all tags and layers
+

@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://b6yifww5fmmad"]
+
+[ext_resource type="Texture2D" uid="uid://uepbb54sx45e" path="res://assets/Sprites/blue-mage-free/free/blue-mage-staff-idle_strip12.png" id="1_hrvx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edxk8"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hfdy"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbd18"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xn2r"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv0qv"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkgsl"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yjum"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81gwt"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffoyg"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fudw3"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(360, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgc15"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(400, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it60j"]
+atlas = ExtResource("1_hrvx7")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0d12g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edxk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hfdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbd18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xn2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv0qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkgsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yjum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81gwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffoyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fudw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgc15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it60j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yqmj"]
+
+[node name="BlueMage" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -21)
+sprite_frames = SubResource("SpriteFrames_0d12g")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_3yqmj")

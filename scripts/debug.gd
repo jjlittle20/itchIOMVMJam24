@@ -9,4 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.text =GameData.main.persistentData.currentLevel+" "+GameData.main.persistentData.currentSpawnPoint
+	var persistantData =GameData.main.persistentData
+	self.text =persistantData.currentLevel+"\n"+persistantData.currentSpawnPoint+"\n"+persistantData.currentArea

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b20jsesop15q0"]
+
+[ext_resource type="Script" path="res://scripts/LevelCameraSetter.gd" id="1_k37g2"]
+
+[node name="LevelCameraSetter" type="Node"]
+script = ExtResource("1_k37g2")

@@ -2,11 +2,15 @@ extends Node
 
 var main ={
 	player={
-		hp=3,
+		currentHp=3,
+		fullHp =3,
 		maxHp=10,
 		speedMultipliyer=1,
 		isLocked=false,
-		isDialogOpen=false
+		isDialogOpen=false,
+		canJump=true,
+		isHuman=true
+		
 		
 	},
 	keyItems={
@@ -17,9 +21,15 @@ var main ={
 		
 	},
 	persistentData={
-		"currentArea":"forest",
-		"currentLevel":"forest_level_1",
-		"currentSpawnPoint":""
+		"currentArea":"village",
+		"currentLevel":"villageLevelA",
+		"currentSpawnPoint":"villageLevelAStartSpawn",
+		"lastCheckPoint":{
+			"area":"village",
+			"level":"villageLevelA",
+			"checkPointName":"villageLevelAStartSpawn"
+			
+		}
 	}
 	
 }
@@ -33,42 +43,60 @@ var items={
 		}
 	}
 }
+
+var enemies={
+	"Skeleton":{
+		"hp":5,
+		"attackDamage":0.5,
+		
+	}
+}
 var levels={
 	"area":{
-		"forest":{
-			"forest_level_1":{
-				"name":"forest_level_1",
-				"scenePath":"res://scenes/forest_level_1.tscn",
+		"village":{
+			"villageLevelA":{
+				"name":"villageLevelA",
+				"scenePath":"res://scenes/village_level_A.tscn",
 				"connections":{
 					#key is the connection point entered. then area+level+connection is the point exited
-					"b": {"area":"forest","level":"forest_level_2","connection":"a"}
-				}
+					"villageLevelARightExit": {"area":"village","level":"villageLevelB","connection":"villageLevelBLeftSpawn"}
+				},
 			
 			},
-			"forest_level_2":{
-				"name":"forest_level_2",
-				"scenePath":"res://scenes/forest_level_2.tscn",
+			"villageLevelB":{
+				"name":"villageLevelB",
+				"scenePath":"res://scenes/village_level_B.tscn",
 				"connections":{
-					"a": {"area":"forest","level":"forest_level_1","connection":"b"},
-					"b": {"area":"forest","level":"forest_level_3","connection":"a"}
+					"villageLevelBLeftExit": {"area":"village","level":"villageLevelA","connection":"villageLevelARightSpawn"},
+					"villageLevelBRightExit": {"area":"mageTower","level":"mageTowerLevelA","connection":"mageTowerLevelALeftSpawn"}
 				}
 			},
-			"forest_level_3":{
-				"name":"forest_level_3",
-				"scenePath":"res://scenes/forest_level_3.tscn",
+			
+		},
+		"mageTower":{
+			"mageTowerLevelA":{
+				"name":"mageTowerLevelA",
+				"scenePath":"res://scenes/mage_tower_level_A.tscn",
 				"connections":{
-					"a": {"area":"forest","level":"forest_level_2","connection":"b"},
-					"b": {"area":"forest","level":"forest_level_4","connection":"a"}
+					"mageTowerLevelALeftExit": {"area":"village","level":"villageLevelB","connection":"villageLevelBRightSpawn"},
+					"mageTowerLevelATopExit": {"area":"mageTower","level":"mageTowerLevelB","connection":"mageTowerLevelBBottomSpawn"}
 				}
 			},
-			"forest_level_4":{
-				"name":"forest_level_4",
-				"scenePath":"res://scenes/forest_level_4.tscn",
+			"mageTowerLevelB":{
+				"name":"mageTowerLevelB",
+				"scenePath":"res://scenes/mage_tower_level_B.tscn",
 				"connections":{
-					"a": {"area":"forest","level":"forest_level_3","connection":"b"},
-					#"b": {"area":"forest","level":"forest_level_4","connection":"a"}
+					"mageTowerLevelBBottomExit": {"area":"mageTower","level":"mageTowerLevelA","connection":"mageTowerLevelATopSpawn"},
+					"mageTowerLevelBRightExit": {"area":"mageTower","level":"mageTowerBossRoom","connection":"mageTowerBossRoomLeftSpawn"}
 				}
-			}
+			},
+			"mageTowerBossRoom":{
+				"name":"mageTowerBossRoom",
+				"scenePath":"res://scenes/mage_tower_boss_room.tscn",
+				"connections":{
+					"mageTowerBossRoomLeftExit": {"area":"mageTower","level":"mageTowerLevelB","connection":"mageTowerLevelBRightSpawn"},
+				}
+			},
 		}
 	}
 }
